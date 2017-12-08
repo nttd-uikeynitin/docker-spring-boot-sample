@@ -1,0 +1,17 @@
+version: '2'
+services:
+  frdbdc:
+    build:
+      context: .
+      dockerfile: Dockerfile-db
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "8090:8090"
+    depends_on: 
+    - frdbdc
+    command: ["./wait-for-it.sh", "frdbdc:5432", "--", "java", "-jar", "/app.jar"]
+
+ 

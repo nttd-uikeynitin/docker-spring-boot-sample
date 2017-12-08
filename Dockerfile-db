@@ -1,0 +1,3 @@
+ FROM postgres
+ ENV POSTGRES_DB postgres
+ ADD /src/main/resources/import.sql /docker-entrypoint-initdb.d/
