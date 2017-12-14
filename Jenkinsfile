@@ -14,7 +14,6 @@ pipeline {
         }
          stage('Build src') {
             steps {
-                sh "mvn -f pom.xml -s setting.xml clean"
                 sh "mvn -f pom.xml package -Dmaven.test.skip=true"
             }
         }
