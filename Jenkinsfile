@@ -15,7 +15,7 @@ pipeline {
          stage('Build src') {
             steps {
                 sh "mvn -f pom.xml -s setting.xml clean"
-                sh "mvn -f pom.xml -s setting.xml package -Dmaven.test.skip=true -DreleaseVersion=${CONST_RELEASE_VERSION}-${topic_label}"
+                sh "mvn -f pom.xml package -Dmaven.test.skip=true"
             }
         }
         stage('Test') {
