@@ -14,7 +14,7 @@ pipeline {
         }
          stage('Build src') {
             steps {
-                sh "mvn -f pom.xml package -Dmaven.test.skip=true"
+                sh "mvn -f pom.xml deploy"
             }
         }
         stage('Test') {
